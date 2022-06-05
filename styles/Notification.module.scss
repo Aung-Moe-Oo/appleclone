@@ -1,0 +1,31 @@
+.container {
+  width: 100%;
+  height: 52px;
+  background-color: #1d1d1f;
+}
+.bar {
+  max-width: 1024px;
+  font-size: 14px;
+  opacity: 0.92;
+  margin: 0 auto;
+  padding: 0 22px;
+  display: flex;
+  align-items: center;
+  line-height: 0;
+  justify-content: center;
+  color: #fff;
+  font-family: "SF Pro Display", "Myriad Set Pro", "SF Pro Icons",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  src: url("../assets/FontsFree-Net-SFProDisplay-Regular.ttf");
+}
+.text {
+  position: relative;
+  font-weight: lighter;
+  line-height: 1;
+  font-size: 14px;
+}
+.link {
+  color: #2997ff;
+  line-height: 0;
+  display: inline;
+}
