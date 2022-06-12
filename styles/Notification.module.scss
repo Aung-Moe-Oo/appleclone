@@ -29,3 +29,18 @@
   line-height: 0;
   display: inline;
 }
+@media screen and (max-width: 734px) {
+  .bar {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 480px) {
+  .container {
+    height: 72px;
+    display: flex;
+    align-items: center;
+  }
+  .text {
+    line-height: 1.3;
+  }
+}

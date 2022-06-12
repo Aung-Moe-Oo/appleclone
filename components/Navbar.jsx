@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../styles/Navbar.module.scss";
-import { FaApple, FaSearch, FaShoppingBag } from "react-icons/fa";
+import { FaApple, FaSearch } from "react-icons/fa";
 import { BsBag } from "react-icons/bs";
 
 const Navbar = () => {
