@@ -1,0 +1,118 @@
+.container {
+  background-color: #000;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 2rem;
+}
+.movielist,
+.movielist2 {
+  width: 3024px;
+  height: 228px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+}
+.movie,
+.movie2 {
+  width: 378px;
+  height: 212px;
+  position: relative;
+  list-style-type: none;
+  margin: 14px 14px 0 0;
+  padding: 0;
+}
+.movie {
+  animation: move 35s linear 1s infinite;
+}
+.movie2 {
+  animation: move 30s linear 1ms infinite;
+}
+@keyframes move {
+  from {
+    right: 0;
+  }
+  to {
+    right: 1500px;
+  }
+}
+.movie img,
+.movie2 img {
+  border-radius: 7px;
+  object-fit: contain;
+  cursor: pointer;
+  z-index: 1;
+}
+.btn {
+  display: none;
+}
+.btn span {
+  margin-right: 5px;
+}
+.movie:hover img,
+.movie2:hover img {
+  opacity: 0.6;
+  transition: all 0.3s linear;
+}
+.movie:hover .btn,
+.movie2:hover .btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  padding: 12px 22px;
+  border-radius: 20px;
+  border: none;
+  font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Helvetica Neue",
+    Helvetica, Arial, sans-serif;
+  src: url("../assets/FontsFree-Net-SFProText-Regular.ttf");
+  font-weight: bold;
+  cursor: pointer;
+  padding: 12px 22px;
+  animation: up 0.3s linear;
+}
+
+@keyframes up {
+  from {
+    top: 60%;
+  }
+  to {
+    top: 50%;
+  }
+}
+@media screen and (max-width: 833px) {
+  .movie,
+  .movie2 {
+    width: 210px;
+    height: 118px;
+    position: relative;
+    list-style-type: none;
+    margin: 10px 10px 0 0;
+    padding: 0;
+  }
+  .movielist,
+  .movielist2 {
+    width: 1680px;
+    height: auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+  }
+  .movie {
+    animation: move 55s linear 1s infinite;
+  }
+  .movie2 {
+    animation: move 50s linear 1ms infinite;
+  }
+}
+@media screen and (max-width: 734px) {
+}
