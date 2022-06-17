@@ -10,9 +10,22 @@ import movie8 from "../public/movie8.jpg";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import styles from "../styles/Movies.module.scss";
 import { FaPlayCircle } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Featured = () => {
+  const [screen, setScreen] = useState(false);
+  const changeScreen = () => {
+    if (window.scrollY >= 1500) {
+      setScreen(true);
+    } else {
+      setScreen(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", changeScreen);
+  }, []);
+
   const [index, setIndex] = useState(0);
   const handleArrow = (direction) => {
     if (direction === "l") {
@@ -33,42 +46,54 @@ const Featured = () => {
     movie8,
   ];
   return (
-    <div className={styles.container}>
-      <div
-        className={styles.arrowContainer}
-        style={{ left: "10px" }}
-        onClick={() => handleArrow("l")}
-      >
-        <FaChevronLeft size={50} />
-      </div>
-      <div
-        className={styles.wrapper}
-        style={{
-          transform: `translateX(${-100 * index}vw)`,
-        }}
-      >
-        {images.map((img, i) => (
-          <div key={i} className={styles.imgContainer}>
-            <button className={styles.btn}>
-              <span> Stream Now</span>
-              <FaPlayCircle />
-            </button>
-            <Image
-              src={img}
-              alt="img"
-              layout="fill"
-              priority="first"
-              className={styles.img}
-            />
-          </div>
-        ))}
-      </div>
-      <div
-        className={styles.arrowContainer}
-        style={{ right: "-40px" }}
-        onClick={() => handleArrow("r")}
-      >
-        <FaChevronRight size={50} />
+    <div className={styles.mainContainer}>
+      <div className={styles.container}>
+        <div
+          className={styles.arrowContainer}
+          style={{ left: "10px", display: screen ? "block" : "none" }}
+          onClick={() => handleArrow("l")}
+        >
+          <FaChevronLeft size={50} />
+        </div>
+        <div
+          className={styles.wrapper}
+          style={{
+            transform: `translateX(${-100 * index}vw)`,
+          }}
+        >
+          {images.map((img, i) => (
+            <div
+              key={i}
+              className={styles.imgContainer}
+              style={{
+                width: screen ? "76vw" : "100vw",
+              }}
+            >
+              <button
+                className={styles.btn}
+                style={{ display: screen ? "block" : "none" }}
+              >
+                <span> Stream Now</span>
+                <FaPlayCircle />
+              </button>
+              <Image
+                src={img}
+                alt="img"
+                layout="fill"
+                priority="first"
+                className={styles.img}
+                style={{ borderRadius: screen ? "20px" : "0" }}
+              />
+            </div>
+          ))}
+        </div>
+        <div
+          className={styles.arrowContainer}
+          style={{ right: "-40px", display: screen ? "block" : "none" }}
+          onClick={() => handleArrow("r")}
+        >
+          <FaChevronRight size={50} />
+        </div>
       </div>
     </div>
   );
